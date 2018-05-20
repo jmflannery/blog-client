@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 12px;
+}
+
+.blog-title {
+  color: #00293C;
+  font-size: 1.6rem;
+  font-family: 'Trade Winds', cursive;
+  padding: 12px;
+  margin: 0 12px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  width: 56px;
+  margin: 8px;
+  border-radius: 10px;
+  background-color: #00293C;
+  color: #F62A00;
+  font-size: 1.8rem;
+}
+
+
