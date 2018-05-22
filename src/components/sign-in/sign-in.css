@@ -1,0 +1,40 @@
+.sign-in-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign-in-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 48%;
+  padding: 24px 48px;
+  border: 1px solid grey;
+  border-radius: 8px;
+}
+
+.sign-in-form label {
+  margin-bottom: 6px;
+}
+
+.sign-in-form input {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 8px;
+  font-size: 1rem;
+  font-family: 'Roboto Slab', serif;
+  border: 1px solid grey;
+  border-radius: 8px;
+}
+
+.sign-in-form button {
+  padding: 8px 24px;
+  background-color: #00293C;
+  color: #F62A00;
+  font-size: 1.1rem;
+  font-family: 'Roboto Slab', serif;
+  border-radius: 10px;
+  cursor: pointer;
+}
