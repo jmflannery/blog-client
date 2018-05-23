@@ -15,7 +15,7 @@ const sessions = (state = initialState, action) => {
       };
     default:
       return state;
-  };
+  }
 };
 
 export default sessions;

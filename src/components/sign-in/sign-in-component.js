@@ -10,6 +10,12 @@ class SignInComponent extends Component {
     };
   }
 
+  componentDidUpdate() {
+    if (this.props.token && this.props.token.length && this.props.currentUser && this.props.currentUser.id > 0) {
+      this.props.history.push('/blog');
+    }
+  }
+
   signIn() {
     let { email, password } = this.state;
     if (!email || !password) return;
