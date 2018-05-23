@@ -1,11 +1,14 @@
 const NO_CONTENT = 204;
 
+let apiToken;
+
 const fetchJson = (url, options, auth = false, isJson = true) => {
-  // let token = getToken(store.getState());
   let promise = new Promise((resolve, reject) => {
-    let headerParams = options.headers || {};
-    delete options.headers;
-    let headersObj = { ...headers(auth, isJson).headers, ...headerParams };
+    let headersObj = { ...jsonHeaders() };
+    if (auth) {
+      let token = ''; //getToken(store.getState());
+      headersObj = { ...headersObj, ...authHeaders(token) };
+    }
     let opts = { headers: headersObj, ...options };
     return fetch(url, opts)
       .then(checkStatus)
@@ -16,6 +19,28 @@ const fetchJson = (url, options, auth = false, isJson = true) => {
   return promise;
 };
 
+export default fetchJson;
+
+const login = (email, password) => {
+  let promise = new Promise((resolve, reject) => {
+    let url = `http://localhost:3000/login`;
+    let headersObj = { ...loginHeaders(email, password), ...jsonHeaders() };
+    let opts = {
+      method: 'POST',
+      headers: headersObj
+    };
+    return fetch(url, opts)
+      .then(checkStatus)
+      .then(getToken)
+      .then(toJson)
+      .then(user   => resolve({ currentUser: user['toker/user'], token: apiToken }))
+      .catch(error => reject(error));
+  });
+  return promise;
+};
+
+export { login };
+
 const toJson = response => {
   const { status } = response;
   if (status === NO_CONTENT) {
@@ -25,15 +50,15 @@ const toJson = response => {
   }
 };
 
-const checkStatus = response => {
-  let token;
+const getToken = response => {
   let authHeader = response.headers.get('Authorization');
   if (authHeader && authHeader.includes('Token ')) {
-    token = authHeader.replace('Token ', '');
+    apiToken = authHeader.replace('Token ', '');
   }
-  // TODO: get token into redux store
-  console.log('Token:');
-  console.log(token);
+  return response;
+};
+
+const checkStatus = response => {
   const { status } = response;
   if (status >= 200 && status < 300) {
     return response;
@@ -41,21 +66,15 @@ const checkStatus = response => {
   return Promise.reject(response);
 };
 
-const headers = (token = null, isJson = true) => {
-  let headersObj = {};
-  if (token) {
-    headersObj = {
-      Authorization: `Token ${token}`
-    };
-  }
-  if (isJson) {
-    headersObj = {
-      ...headersObj,
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    }
-  }
-  return { headers: headersObj };
-};
+const jsonHeaders = () => ({
+  Accept: 'application/json',
+  'Content-Type': 'application/json',
+});
 
-export default fetchJson;
+const loginHeaders = (email, password) => ({
+  Authorization: "Basic " + btoa(`${email}:${password}`)
+});
+
+const authHeaders = (token) => ({
+  Authorization: `Token ${token}`
+});
