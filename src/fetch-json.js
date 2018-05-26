@@ -2,11 +2,10 @@ const NO_CONTENT = 204;
 
 let apiToken;
 
-const fetchJson = (url, options, auth = false, isJson = true) => {
+const fetchJson = (url, options, token = false) => {
   let promise = new Promise((resolve, reject) => {
     let headersObj = { ...jsonHeaders() };
-    if (auth) {
-      let token = ''; //getToken(store.getState());
+    if (token) {
       headersObj = { ...headersObj, ...authHeaders(token) };
     }
     let opts = { headers: headersObj, ...options };
@@ -31,7 +30,7 @@ const login = (email, password) => {
     };
     return fetch(url, opts)
       .then(checkStatus)
-      .then(getToken)
+      .then(saveToken)
       .then(toJson)
       .then(user   => resolve({ currentUser: user['toker/user'], token: apiToken }))
       .catch(error => reject(error));
@@ -49,7 +48,7 @@ const loginWithToken = (token) => {
     };
     return fetch(url, opts)
       .then(checkStatus)
-      .then(getToken)
+      .then(saveToken)
       .then(toJson)
       .then(user   => resolve({ currentUser: user['toker/user'], token: apiToken }))
       .catch(error => reject(error));
@@ -71,7 +70,7 @@ const toJson = response => {
   }
 };
 
-const getToken = response => {
+const saveToken = response => {
   let authHeader = response.headers.get('Authorization');
   if (authHeader && authHeader.includes('Token ')) {
     apiToken = authHeader.replace('Token ', '');
