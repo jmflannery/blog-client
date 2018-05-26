@@ -1,13 +1,12 @@
 import { connect } from 'react-redux';
-import { fetchPosts } from '../../actions/posts';
 import PostsComponent from './posts-component';
+import { getPosts } from '../../selectors/posts';
 
 const mapStateToProps = state => ({
-  posts: state.posts
+  posts: getPosts(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchPosts: () => dispatch(fetchPosts())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostsComponent);

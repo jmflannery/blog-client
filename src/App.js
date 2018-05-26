@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from 'react-redux'
 import configureStore from './configure-store';
+import Blog from './components/blog/blog';
 import Posts from './components/posts/posts';
 import SignIn from './components/sign-in/sign-in';
 import Header from './Header';
@@ -15,10 +16,10 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <div>
-          <Header />
-          <Router>
-            <div>
+        <Router>
+          <Blog>
+            <Header />
+            <div className="blog-content">
               <Route exact path="/blog" component={Posts} />
               <Route exact path="/blog/posts" component={Posts} />
               <Route exact path="/blog/sign_in" component={SignIn} />
@@ -30,8 +31,8 @@ class App extends Component {
                 </Auth>
               )} />
             </div>
-          </Router>
-        </div>
+          </Blog>
+        </Router>
       </Provider>
     );
   }
