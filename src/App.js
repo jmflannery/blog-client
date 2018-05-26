@@ -5,7 +5,7 @@ import configureStore from './configure-store';
 import Blog from './components/blog/blog';
 import Posts from './components/posts/posts';
 import SignIn from './components/sign-in/sign-in';
-import Header from './Header';
+import Header from './components/header/header';
 import Auth from './components/admin/auth/auth';
 import NewPost from './components/admin/posts/new/new-post';
 import './App.css';
