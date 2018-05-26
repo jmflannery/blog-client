@@ -5,6 +5,8 @@ import configureStore from './configure-store';
 import Home from './components/home/home';
 import SignIn from './components/sign-in/sign-in';
 import Header from './Header';
+import Auth from './components/admin/auth/auth';
+import Admin from './components/admin/admin';
 // import logo from './logo.svg';
 import './App.css';
 
@@ -20,6 +22,9 @@ class App extends Component {
             <div>
               <Route exact path="/blog" component={Home} />
               <Route exact path="/blog/sign_in" component={SignIn} />
+              <Auth>
+                <Route exact path="/blog/admin" component={Admin} />
+              </Auth>
             </div>
           </Router>
         </div>

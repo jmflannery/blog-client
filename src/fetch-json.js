@@ -39,7 +39,28 @@ const login = (email, password) => {
   return promise;
 };
 
-export { login };
+const loginWithToken = (token) => {
+  let promise = new Promise((resolve, reject) => {
+    let url = `http://localhost:3000/login`;
+    let headersObj = { ...authHeaders(token), ...jsonHeaders() };
+    let opts = {
+      method: 'PUT',
+      headers: headersObj
+    };
+    return fetch(url, opts)
+      .then(checkStatus)
+      .then(getToken)
+      .then(toJson)
+      .then(user   => resolve({ currentUser: user['toker/user'], token: apiToken }))
+      .catch(error => reject(error));
+  });
+  return promise;
+};
+
+export {
+  login,
+  loginWithToken
+};
 
 const toJson = response => {
   const { status } = response;
@@ -54,6 +75,7 @@ const getToken = response => {
   let authHeader = response.headers.get('Authorization');
   if (authHeader && authHeader.includes('Token ')) {
     apiToken = authHeader.replace('Token ', '');
+    window.localStorage.setItem('API-TOKEN', apiToken);
   }
   return response;
 };

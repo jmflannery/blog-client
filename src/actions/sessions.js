@@ -1,4 +1,4 @@
-import { login } from '../fetch-json';
+import { login, loginWithToken } from '../fetch-json';
 
 const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';
 
@@ -16,8 +16,17 @@ const signIn = (email, password) => {
   };
 };
 
+const signinWithToken = (token) => {
+  return dispatch => {
+    return loginWithToken(token)
+    .then(session => dispatch(signInSuccess(session)))
+    .catch(response => console.log(response))
+  };
+};
+
 export {
   signIn,
+  signinWithToken,
   signInSuccess,
   SIGN_IN_SUCCESS
 };
