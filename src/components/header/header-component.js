@@ -30,7 +30,7 @@ class Header extends Component {
 
   signOut() {
     this.props.signOut(this.props.token)
-      .then(() => this.props.history.push('/blog'));
+      .then(() => window.localStorage.removeItem('API-TOKEN'))
   }
 }
 
