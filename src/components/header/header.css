@@ -1,16 +1,23 @@
 .header {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   width: 100%;
-  padding: 12px;
+  padding: 8px 0;
+}
+
+.header .left, .header .right {
+  display: flex;
+  flex-direction: row;
+  padding: 0 8px;
 }
 
 .blog-title {
-  color: #00293C;
-  font-size: 1.6rem;
-  font-family: 'Trade Winds', cursive;
   padding: 12px;
   margin: 0 12px;
+  font-size: 1.6rem;
+  font-family: 'Trade Winds', cursive;
+  color: #00293C;
 }
 
 .icon {
@@ -26,4 +33,27 @@
   font-size: 1.8rem;
 }
 
+.session-controls {
+  padding: 16px;
+}
 
+.session-controls .note {
+  color: grey;
+  font-style: italic;
+  font-size: .8rem;
+}
+
+.session-controls .user {
+  color: #00293C;
+  margin: 4px;
+  font-size: .9rem;
+}
+
+.session-controls .sign-out {
+  color: #F62A00;
+  cursor: pointer;
+}
+
+.session-controls .sign-out:hover {
+  color: purple;
+}

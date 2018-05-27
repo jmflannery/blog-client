@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import AuthComponent from './auth-component';
 import { signinWithToken } from '../../../actions/sessions';
 
@@ -10,4 +11,4 @@ const mapDispatchToProps = (dispatch) => ({
   signinWithToken: (token) => dispatch(signinWithToken(token))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AuthComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(AuthComponent));

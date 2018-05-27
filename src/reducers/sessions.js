@@ -13,6 +13,8 @@ const sessions = (state = initialState, action) => {
         token: action.token,
         currentUser: action.currentUser
       };
+    case actions.SIGN_OUT_SUCCESS:
+      return initialState;
     default:
       return state;
   }

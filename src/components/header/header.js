@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
-import './header.css';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import HeaderComponent from './header-component';
+import { signOut } from '../../actions/sessions';
+import { getToken, getCurrentUser } from '../../selectors/sessions';
 
-class Header extends Component {
-  render() {
-    return (
-      <div className='header'>
-        <div className="icon">
-          <i className="fas fa-code"></i>
-        </div>
-        <span className="blog-title">Jacks Dev Blog</span>
-      </div>
-    );
-  }
-}
+const mapStateToProps = state => ({
+  token: getToken(state),
+  currentUser: getCurrentUser(state)
+});
 
-export default Header;
+const mapDispatchToProps = dispatch => ({
+  signOut: (token) => dispatch(signOut(token))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(HeaderComponent));

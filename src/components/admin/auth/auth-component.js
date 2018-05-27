@@ -6,7 +6,10 @@ class Auth extends Component {
     if (!this.props.token) {
       let token = window.localStorage.getItem('API-TOKEN');
       if (token) {
-        this.props.signinWithToken(token);
+        this.props.signinWithToken(token)
+          .catch(() => {
+            this.props.history.push('/blog');
+          });
       }
     }
   }
@@ -14,9 +17,8 @@ class Auth extends Component {
   render() {
     if (this.props.token) {
       return (this.props.children);
-    } else {
-      return null;
     }
+    return null;
   }
 }
 
