@@ -1,4 +1,5 @@
 import fetchJson, { login, loginWithToken } from '../fetch-json';
+import history from '../history'
 
 const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';
 const SIGN_OUT_SUCCESS = 'SIGN_OUT_SUCCESS';
@@ -16,7 +17,10 @@ const signOutSuccess = ({ token, currentUser }) => ({
 const signIn = (email, password) => {
   return dispatch => {
     return login(email, password)
-    .then(session => dispatch(signInSuccess(session)))
+    .then(session => {
+      history.push('/blog/posts');
+      dispatch(signInSuccess(session))
+    })
     .catch(response => Promise.reject(response))
   };
 };

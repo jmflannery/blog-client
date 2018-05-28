@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import PostsComponent from './posts-component';
 import { getPosts } from '../../selectors/posts';
 
-const mapStateToProps = state => ({
-  posts: getPosts(state)
+const mapStateToProps = (state, ownProps) => ({
+  posts: getPosts(state),
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -3,6 +3,7 @@ import { getToken } from '../selectors/sessions';
 
 const POSTS_RECEIVED = 'POSTS_RECEIVED';
 const POST_ADDED = 'POST_ADDED';
+const POST_SELECTED = 'POST_SELECTED';
 
 const postsReceived = (posts) => ({
   type: POSTS_RECEIVED,
@@ -12,6 +13,11 @@ const postsReceived = (posts) => ({
 const postAdded = (post) => ({
   type: POST_ADDED,
   post
+});
+
+const selectPost = (slug=null, navigate=true) => ({
+  type: POST_SELECTED,
+  slug
 });
 
 const fetchPosts = () => {
@@ -46,7 +52,9 @@ const createPost = (title, slug, content) => {
 export {
   POSTS_RECEIVED,
   POST_ADDED,
+  POST_SELECTED,
   postsReceived,
   fetchPosts,
-  createPost
+  createPost,
+  selectPost
 };

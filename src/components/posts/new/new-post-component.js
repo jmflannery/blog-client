@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import './new-post.css';
 
 class NewPostComponent extends Component {
@@ -12,6 +13,9 @@ class NewPostComponent extends Component {
   }
 
   render() {
+    if (!this.props.token) {
+      return <Redirect to="/blog" />;
+    }
     return (
       <div className="new-post-container">
         <div className="new-post-form">
@@ -37,8 +41,9 @@ class NewPostComponent extends Component {
   save() {
     if (!this.state.title && !this.state.content && !this.state.slug) return;
     this.props.createPost(this.state.title, this.state.slug, this.state.content)
-      .then(() => {
-        this.props.history.push(`/blog/admin/posts/${this.state.slug}`);
+      .then((post) => {
+        this.props.selectPost(post.slug);
+        this.props.history.push(`/blog/posts/${post.slug}`)
       });
   }
 }
