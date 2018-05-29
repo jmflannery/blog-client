@@ -1,0 +1,14 @@
+.all-posts {
+  display: flex;
+  flex-direction: row;
+}
+
+.post-index {
+  margin-top: 16px;
+  width: 25%;
+}
+
+.post-show {
+  width: 75%;
+  margin: 0 32px;
+}

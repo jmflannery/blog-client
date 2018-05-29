@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import './post-list-item.css';
 
 class PostListItemComponent extends Component {
   render() {
     return (
       <div className='post-list-item'>
         <div className="post-link" onClick={this.selectPost.bind(this)}>
-          <span>{this.props.post.title}</span>
+          <div className="post-title">{this.props.post.title}</div>
+          <div className="post-preview">{this.props.post.content ? this.props.post.content.slice(0, 120) : ""}</div>
         </div>
       </div>
     );

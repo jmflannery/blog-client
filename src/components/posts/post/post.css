@@ -1,0 +1,38 @@
+.post-show {
+  display: flex;
+  flex-direction: row;
+}
+
+.post-show article {
+  width: 100%;
+}
+
+.article-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.article-header h1 {
+  font-family: 'Carter One', cursive;
+  font-size: 2.8rem;
+  margin-bottom: 8px;
+}
+
+.article-header .feather {
+  margin: 0 10px;
+  color: green;
+  font-size: 1.4rem;
+}
+
+.article-header .by {
+  color: grey;
+  margin: 0 4px;
+}
+
+.article-content {
+  margin: 32px;
+  font-size: 1.4rem;
+  font-family: 'Crimson Text', serif;
+}

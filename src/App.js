@@ -7,7 +7,7 @@ import Posts from './components/posts/posts';
 import SignIn from './components/sign-in/sign-in';
 import Header from './components/header/header';
 import NewPost from './components/posts/new/new-post';
-import './App.css';
+import './reset.css';
 
 const store = configureStore();
 
