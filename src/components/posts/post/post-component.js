@@ -14,12 +14,13 @@ class PostComponent extends Component {
     return (
       <article>
         <div className="article-header">
+          {this.postControls()}
+          <h1>{this.props.post.title}</h1>
           <div>
-            <h1>{this.props.post.title}</h1>
             <span className="by">by</span>
             <span className="post-author">Jack Flannery</span>
             <span className="feather">
-              <i class="fas fa-feather"></i>
+              <i className="fas fa-feather"></i>
             </span>
             <span className="post-date">
               {this.props.post.published_at ? moment(this.props.post.published_at).format('dddd, MMMM Do YYYY') : ""}
@@ -31,6 +32,33 @@ class PostComponent extends Component {
         </div>
       </article>
     );
+  }
+
+  postControls() {
+    if (this.props.currentUser.email) {
+      return (
+        <div className="post-controls">
+          <div className="post-control" onClick={this.togglePublished}>
+            {this.publishButton()}
+          </div>
+          <div className="post-control">
+            <i className="far fa-edit"></i>
+          </div>
+          <div className="post-control">
+            <i className="fas fa-trash-alt"></i>
+          </div>
+        </div>
+      );
+    }
+    return null;
+  }
+
+  publishButton() {
+    if (this.props.post.published_at) {
+      return <i className="far fa-eye"></i>
+    } else {
+      return <i className="far fa-eye-slash"></i>
+    }
   }
 }
 
