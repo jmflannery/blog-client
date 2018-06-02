@@ -35,10 +35,11 @@ class PostComponent extends Component {
   }
 
   postControls() {
-    if (this.props.currentUser.email) {
+    if (this.props.currentUser && this.props.currentUser.email) {
+      let publishedClass = `post-control publish-button${this.props.post.published_at ? ' published' : ''}`
       return (
         <div className="post-controls">
-          <div className="post-control" onClick={this.togglePublished}>
+          <div className={publishedClass} onClick={this.togglePublished.bind(this)}>
             {this.publishButton()}
           </div>
           <div className="post-control">
@@ -55,9 +56,17 @@ class PostComponent extends Component {
 
   publishButton() {
     if (this.props.post.published_at) {
-      return <i className="far fa-eye"></i>
+      return <i className="fas fa-eye"></i>
     } else {
-      return <i className="far fa-eye-slash"></i>
+      return <i className="fas fa-eye-slash"></i>
+    }
+  }
+
+  togglePublished() {
+    if (this.props.post.published_at) {
+      this.props.unpublishPost(this.props.post.id);
+    } else {
+      this.props.publishPost(this.props.post.id);
     }
   }
 }

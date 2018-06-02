@@ -4,6 +4,7 @@ import { getToken } from '../selectors/sessions';
 const POSTS_RECEIVED = 'POSTS_RECEIVED';
 const POST_ADDED = 'POST_ADDED';
 const POST_SELECTED = 'POST_SELECTED';
+const POST_UPDATED = 'POST_UPDATED';
 
 const postsReceived = (posts) => ({
   type: POSTS_RECEIVED,
@@ -18,6 +19,11 @@ const postAdded = (post) => ({
 const selectPost = (slug=null, navigate=true) => ({
   type: POST_SELECTED,
   slug
+});
+
+const postUpdated = (post) => ({
+  type: POST_UPDATED,
+  post
 });
 
 const fetchPosts = () => {
@@ -49,12 +55,44 @@ const createPost = (title, slug, content) => {
   };
 };
 
+const publishPost = postId => {
+  return (dispatch, getState) => {
+    let url = `http://localhost:3000/posts/${postId}/publish`;
+    let token = getToken(getState());
+    return fetchJson(url, {
+      method: 'PUT'
+    }, token)
+      .then(response => {
+        return dispatch(postUpdated(response.post))
+      });
+  };
+};
+
+const unpublishPost = postId => {
+  return (dispatch, getState) => {
+    let url = `http://localhost:3000/posts/${postId}`;
+    let token = getToken(getState());
+    return fetchJson(url, {
+      method: 'PATCH',
+      body: JSON.stringify({
+        published_at: null
+      })
+    }, token)
+      .then(response => {
+        return dispatch(postUpdated(response.post))
+      });
+  };
+};
+
 export {
   POSTS_RECEIVED,
   POST_ADDED,
   POST_SELECTED,
+  POST_UPDATED,
   postsReceived,
   fetchPosts,
   createPost,
-  selectPost
+  selectPost,
+  publishPost,
+  unpublishPost
 };

@@ -25,6 +25,16 @@ const posts = (state = initialState, action) => {
         ...state,
         selected: action.slug
       };
+    case actions.POST_UPDATED:
+      return {
+        ...state,
+        all: state.all.map(post => {
+          if (post.id === action.post.id) {
+            return action.post;
+          }
+          return post;
+        })
+      }
     default:
       return state;
   }
