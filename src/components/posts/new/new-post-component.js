@@ -13,9 +13,6 @@ class NewPostComponent extends Component {
   }
 
   render() {
-    if (!this.props.token) {
-      return <Redirect to="/blog" />;
-    }
     return (
       <div className="new-post-container">
         <div className="new-post-form">
@@ -42,8 +39,7 @@ class NewPostComponent extends Component {
     if (!this.state.title && !this.state.content && !this.state.slug) return;
     this.props.createPost(this.state.title, this.state.slug, this.state.content)
       .then((post) => {
-        this.props.selectPost(post.slug);
-        this.props.history.push(`/blog/posts/${post.slug}`)
+        this.props.history.push(`/blog/posts/${this.state.slug}`)
       });
   }
 }

@@ -16,18 +16,16 @@ class BlogComponent extends Component {
         this.props.signinWithToken(token)
           .catch(() => window.localStorage.removeItem('API-TOKEN'));
       } else {
-        this.props.fetchPosts();
+        this.props.fetchPosts()
+          .then(this.setState({ loaded: true }))
       }
     }
   }
 
   componentDidUpdate(prevProps) {
-    if (!this.state.loaded) {
+    if (!this.state.loaded || prevProps.token && !this.props.token) {
       this.props.fetchPosts()
         .then(this.setState({ loaded: true }))
-    } else if (prevProps.token && !this.props.token) {
-      this.props.fetchPosts()
-        .then(this.setState({ loaded: false }))
     }
   }
 

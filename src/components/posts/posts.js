@@ -3,10 +3,7 @@ import PostsComponent from './posts-component';
 import { getPosts } from '../../selectors/posts';
 
 const mapStateToProps = (state, ownProps) => ({
-  posts: getPosts(state),
+  posts: getPosts(state)
 });
 
-const mapDispatchToProps = dispatch => ({
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(PostsComponent);
+export default connect(mapStateToProps)(PostsComponent);

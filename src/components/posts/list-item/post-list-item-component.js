@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import './post-list-item.css';
 
 class PostListItemComponent extends Component {
   render() {
     return (
       <div className='post-list-item'>
-        <div className="post-link" onClick={this.selectPost.bind(this)}>
+        <NavLink className="post-link" to={`/blog/posts/${this.props.post.slug}`}>
           <div className="post-title">{this.props.post.title}</div>
           <div className="post-preview">{this.props.post.content ? this.props.post.content.slice(0, 120) : ""}</div>
-        </div>
+        </NavLink>
       </div>
     );
-  }
-
-  selectPost() {
-    this.props.selectPost(this.props.post.slug);
-    this.props.history.push(`/blog/posts/${this.props.post.slug}`);
   }
 };
 

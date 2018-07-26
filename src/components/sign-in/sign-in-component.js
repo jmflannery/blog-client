@@ -14,6 +14,7 @@ class SignInComponent extends Component {
     let { email, password } = this.state;
     if (!email || !password) return;
     this.props.signIn(email, password)
+      .then(() => this.props.history.push('/blog/posts'));
   }
 
   render() {

@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { fetchPosts } from '../../actions/posts';
 import BlogComponent from './blog-component';
 import { getToken } from '../../selectors/sessions';
@@ -13,4 +14,4 @@ const mapDispatchToProps = dispatch => ({
   fetchPosts: () => dispatch(fetchPosts())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(BlogComponent);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BlogComponent));
