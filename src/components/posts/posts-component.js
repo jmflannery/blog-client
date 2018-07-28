@@ -13,7 +13,7 @@ class PostsComponent extends Component {
           {postIndex}
         </div>
         <div className="post-show">
-          <Route path="/blog/posts/:slug" component={Post} />
+          <Route path="/posts/:slug" component={Post} />
         </div>
       </div>
     );

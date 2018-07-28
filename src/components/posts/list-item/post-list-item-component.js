@@ -6,7 +6,7 @@ class PostListItemComponent extends Component {
   render() {
     return (
       <div className='post-list-item'>
-        <NavLink className="post-link" to={`/blog/posts/${this.props.post.slug}`}>
+        <NavLink className="post-link" to={`/posts/${this.props.post.slug}`}>
           <div className="post-title">{this.props.post.title}</div>
           <div className="post-preview">{this.props.post.content ? this.props.post.content.slice(0, 120) : ""}</div>
         </NavLink>

@@ -1,3 +1,4 @@
+import config from '../config';
 import fetchJson from '../fetch-json';
 import { getToken } from '../selectors/sessions';
 
@@ -28,7 +29,7 @@ const postUpdated = (post) => ({
 
 const fetchPosts = () => {
   return (dispatch, getState) => {
-    let url = `http://localhost:3000/posts`;
+    let url = `${config.protocol}://${config.apiDomain}/posts`;
     let token = getToken(getState());
     return fetchJson(url, { method: 'GET' }, token)
       .then(response => {
@@ -39,7 +40,7 @@ const fetchPosts = () => {
 
 const createPost = (title, slug, content) => {
   return (dispatch, getState) => {
-    let url = `http://localhost:3000/posts`;
+    let url = `${config.protocol}://${config.apiDomain}/posts`;
     let token = getToken(getState());
     return fetchJson(url, {
       method: 'POST',
@@ -57,7 +58,7 @@ const createPost = (title, slug, content) => {
 
 const publishPost = postId => {
   return (dispatch, getState) => {
-    let url = `http://localhost:3000/posts/${postId}/publish`;
+    let url = `${config.protocol}://${config.apiDomain}/posts/${postId}/publish`;
     let token = getToken(getState());
     return fetchJson(url, {
       method: 'PUT'
@@ -70,7 +71,7 @@ const publishPost = postId => {
 
 const unpublishPost = postId => {
   return (dispatch, getState) => {
-    let url = `http://localhost:3000/posts/${postId}`;
+    let url = `${config.protocol}://${config.apiDomain}/posts/${postId}`;
     let token = getToken(getState());
     return fetchJson(url, {
       method: 'PATCH',

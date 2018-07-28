@@ -1,3 +1,5 @@
+import config from './config';
+
 const NO_CONTENT = 204;
 
 let apiToken;
@@ -22,7 +24,7 @@ export default fetchJson;
 
 const login = (email, password) => {
   let promise = new Promise((resolve, reject) => {
-    let url = `http://localhost:3000/login`;
+    let url = `${config.protocol}://${config.apiDomain}/login`;
     let headersObj = { ...loginHeaders(email, password), ...jsonHeaders() };
     let opts = {
       method: 'POST',
@@ -40,7 +42,7 @@ const login = (email, password) => {
 
 const loginWithToken = (token) => {
   let promise = new Promise((resolve, reject) => {
-    let url = `http://localhost:3000/login`;
+    let url = `${config.protocol}://${config.apiDomain}/login`;
     let headersObj = { ...authHeaders(token), ...jsonHeaders() };
     let opts = {
       method: 'PUT',
