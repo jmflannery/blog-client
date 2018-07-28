@@ -1,0 +1,5 @@
+#!/bin/bash
+
+yarn build
+
+rsync -azv --force --delete --progress --exclude-from=rsync_exclude.txt -e "ssh -p22" ./build/* deployer@jackflannery.me:/var/www/blog-client
