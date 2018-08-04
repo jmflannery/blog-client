@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import ReactMarkdown from 'react-markdown';
 import './post.css';
 
 class PostComponent extends Component {
@@ -22,7 +23,7 @@ class PostComponent extends Component {
             </div>
           </div>
           <div className="article-content">
-            {this.props.post.content}
+            <ReactMarkdown source={this.props.post.content} />
           </div>
         </article>
       :<div>Loading...</div>
