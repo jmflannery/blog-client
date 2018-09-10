@@ -1,14 +1,34 @@
-.all-posts {
-  display: flex;
-  flex-direction: row;
+.posts {
+  .post-index {
+    width: 100%;
+  }
+
+  &.show-post {
+    .post-index {
+      display: none;
+    }
+  }
 }
 
-.post-index {
-  margin-top: 16px;
-  width: 25%;
-}
+@media only screen and (min-width: 768px) {
+  .posts {
+    display: flex;
+    flex-direction: row;
 
-.post-show {
-  width: 75%;
-  margin: 0 32px;
+    .post-index {
+      margin-top: 16px;
+      width: 25%;
+    }
+
+    &.show-post {
+      .post-index {
+        display: block;
+      }
+    }
+
+    .post-show {
+      width: 75%;
+      margin: 0 32px;
+    }
+  }
 }

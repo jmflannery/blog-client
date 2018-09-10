@@ -1,19 +1,29 @@
 .post-list-item {
   padding: 8px;
   border-top: 1px solid grey;
-  border-right: 1px solid grey;
-  border-left: 1px solid grey;
+
+  .post-link {
+    cursor: pointer;
+
+    .post-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .post-preview {
+      font-size: 0.9rem;
+    }
+  }
+  &:last-of-type {
+    border-bottom: 1px solid grey;
+  }
 }
 
-.post-list-item .post-link {
-  cursor: pointer;
-}
-
-.post-list-item .post-link .post-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.post-list-item .post-link .post-preview {
-  font-size: 0.9rem;
+@media only screen and (min-width: 768px) {
+  .post-list-item {
+    padding: 8px;
+    border-top: 1px solid grey;
+    border-right: 1px solid grey;
+    border-left: 1px solid grey;
+  }
 }

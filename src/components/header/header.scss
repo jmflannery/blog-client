@@ -1,59 +1,69 @@
 .header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  padding: 8px 0;
-}
-
-.header .left, .header .right {
-  display: flex;
-  flex-direction: row;
-  padding: 0 8px;
-}
-
-.blog-title {
+  display: grid;
   padding: 12px;
-  margin: 0 12px;
-  font-size: 1.6rem;
-  font-family: 'Trade Winds', cursive;
-  color: #00293C;
+
+  .side-a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 56px;
+      width: 56px;
+      border-radius: 10px;
+      background-color: #00293C;
+      color: #F62A00;
+      font-size: 1.8rem;
+    }
+
+    .blog-title {
+      margin-left: 24px;
+      font-size: 1.4rem;
+      font-family: 'Trade Winds', cursive;
+      color: #00293C;
+    }
+  }
+
+  .side-b {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .session-controls {
+      margin-right: 32px;
+
+      .user {
+        color: #00293C;
+        margin: 4px;
+        font-size: .9rem;
+      }
+      .sign-out {
+        color: #F62A00;
+        cursor: pointer;
+      }
+    }
+  }
 }
 
-.icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 56px;
-  width: 56px;
-  margin: 8px;
-  border-radius: 10px;
-  background-color: #00293C;
-  color: #F62A00;
-  font-size: 1.8rem;
-}
+@media only screen and (min-width: 768px) {
+  .header {
+    grid-template-columns: 50vw 50vw;
 
-.session-controls {
-  padding: 16px;
-}
+    .side-a {
+      padding-left: 12px;
 
-.session-controls .note {
-  color: grey;
-  font-style: italic;
-  font-size: .8rem;
-}
+      .blog-title {
+        font-size: 1.8rem;
+      }
+    }
 
-.session-controls .user {
-  color: #00293C;
-  margin: 4px;
-  font-size: .9rem;
-}
-
-.session-controls .sign-out {
-  color: #F62A00;
-  cursor: pointer;
-}
-
-.session-controls .sign-out:hover {
-  color: purple;
+    .side-b {
+      justify-content: flex-end;
+      padding-right: 12px;
+    }
+  }
 }

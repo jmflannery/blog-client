@@ -6,9 +6,18 @@ import './posts.css';
 
 class PostsComponent extends Component {
   render() {
-    let postIndex = this.props.posts.map(post => <PostListItem post={post} key={post.id} />)
+    let postIndex = this.props.posts.map(post => <PostListItem post={post} key={post.id} />),
+        path = this.props.location.pathname,
+        showing;
+
+    if (path.match(/\/posts$/)) {
+      showing = false;
+    } else if (path.match(/\/posts\/\S+/)) {
+      showing = true;
+    }
+
     return (
-      <div className="all-posts">
+      <div className={ showing ? "posts show-post" : "posts" }>
         <div className="post-index">
           {postIndex}
         </div>

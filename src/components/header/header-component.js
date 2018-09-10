@@ -7,7 +7,6 @@ class Header extends Component {
     if (this.props.token && this.props.currentUser) {
       sessionControls = (
         <div className="session-controls">
-          <span className="note">Signed In as</span>
           <span className="user">{this.props.currentUser.email}</span>
           <span className="sign-out" onClick={() => this.signOut()}>Sign Out</span>
         </div>
@@ -15,13 +14,13 @@ class Header extends Component {
     }
     return (
       <div className='header'>
-        <div className="left">
+        <div className="side-a">
           <div className="icon">
             <i className="fas fa-code"></i>
           </div>
           <span className="blog-title">Jacks Dev Blog</span>
         </div>
-        <div className="right">
+        <div className="side-b">
           {sessionControls}
         </div>
       </div>
