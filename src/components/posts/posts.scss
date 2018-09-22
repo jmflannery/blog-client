@@ -1,6 +1,6 @@
 .posts {
   .post-index {
-    width: 100%;
+    width: 100vw;
   }
 
   &.show-post {
@@ -16,8 +16,11 @@
     flex-direction: row;
 
     .post-index {
-      margin-top: 16px;
-      width: 25%;
+      width: 25vw;
+      height: 82vh;
+      overflow: scroll;
+      border: 1px solid black;
+      border-radius: 6px;
     }
 
     &.show-post {

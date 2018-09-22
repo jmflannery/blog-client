@@ -18,7 +18,11 @@ class Header extends Component {
           <div className="icon">
             <i className="fas fa-code"></i>
           </div>
-          <span className="blog-title">Jacks Dev Blog</span>
+          <div className="blog-title">
+            <span className="domain">blog.</span>
+            <span className="name">Jack Flannery</span>
+            <span className="domain">.com</span>
+          </div>
         </div>
         <div className="side-b">
           {sessionControls}
