@@ -63,7 +63,7 @@ class PostComponent extends Component {
   }
 
   editPost() {
-    console.log(this.props.post);
+    this.props.history.push(`/posts/${this.props.post.slug}/edit`);
   }
 }
 
