@@ -1,97 +1,95 @@
-.post-show {
-  display: flex;
-  flex-direction: row;
+article {
+  width: 100%;
 
-  article {
-    width: 100%;
+  .article-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 8px;
 
-    .article-header {
+    .post-controls {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 6px 8px;
+      border: 1px solid grey;
+      border-radius: 8px;
+      padding: 4px;
 
-      .post-controls {
+      .post-control {
         display: flex;
-        border: 1px solid grey;
-        border-radius: 8px;
-        padding: 4px;
-
-        .post-control {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-grow: 1;
-          width: 33%;
-          cursor: pointer;
-          font-size: 2rem;
-          padding: 8px 16px;
-        }
-      }
-
-      h1 {
-        font-family: 'Oswald', sans-serif;
-        font-size: 2.6rem;
-        margin-bottom: 8px;
-      }
-
-      .feather {
-        margin: 0 6px;
-        color: green;
-        font-size: 1rem;
-      }
-
-      .by {
-        font-family: 'Pacifico', cursive;
-        font-size: 1rem;
-        color: grey;
-        margin: 0 4px;
-      }
-
-      .post-author, .post-date {
-        font-size: 0.8rem;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        width: 33%;
+        cursor: pointer;
+        font-size: 2rem;
+        padding: 8px 16px;
       }
     }
 
-    .article-content {
-      margin: 32px;
-      font-size: 1.3rem;
-      font-family: 'Song Myung', serif;
+    h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.6rem;
+      margin-bottom: 8px;
+    }
+
+    .feather {
+      margin: 0 6px;
+      color: green;
+      font-size: 1rem;
+    }
+
+    .by {
+      font-family: 'Pacifico', cursive;
+      font-size: 1rem;
+      color: grey;
+      margin: 0 4px;
+    }
+
+    .post-author, .post-date {
+      font-size: 0.8rem;
+    }
+  }
+
+  .article-content {
+    margin: 32px;
+    font-size: 1.3rem;
+    font-family: 'Song Myung', serif;
+    pre {
+      code {
+        width: 100%;
+      }
     }
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .post-show {
-    article {
-      .article-header {
-        .post-controls {
-          .post-control {
-            font-size: 1.4rem;
-            padding: 8px;
-          }
-        }
-
-        h1 {
-          font-size: 3.3rem;
-        }
-
-        .feather {
-          margin: 0 12px;
+  article {
+    .article-header {
+      .post-controls {
+        .post-control {
           font-size: 1.4rem;
+          padding: 8px;
         }
+      }
 
-        .by {
-          font-family: 'Pacifico', cursive;
-          font-size: 1.4rem;
-          color: grey;
-          margin: 0 4px;
-        }
+      h1 {
+        font-size: 3.3rem;
+      }
 
-        .post-author, .post-date {
-          font-size: 1.1rem;
-        }
+      .feather {
+        margin: 0 12px;
+        font-size: 1.4rem;
+      }
+
+      .by {
+        font-family: 'Pacifico', cursive;
+        font-size: 1.4rem;
+        color: grey;
+        margin: 0 4px;
+      }
+
+      .post-author, .post-date {
+        font-size: 1.1rem;
       }
     }
   }

@@ -1,24 +1,23 @@
 .blog {
-  .header {
+  header {
     width: 94vw;
     height: 10vh;
     padding: 3vh 3vw;
   }
-  .blog-content {
-    width: 98vw;
+  main {
+    width: 100vw;
     height: 84vh;
-    padding: 0;
   }
 }
 
 @media only screen and (min-width: 768px) {
   .blog {
-    .header {
+    header {
       width: 98vw;
       height: 12vh;
       padding: 1vh 1vw;
     }
-    .blog-content {
+    main {
       width: 98vw;
       height: 82vh;
       padding: 1vh 1vw;

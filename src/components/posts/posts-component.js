@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from "react-router-dom";
 import PostListItem from './list-item/post-list-item';
+import EditPost from './edit/edit-post';
 import Post from './post/post';
 import './posts.css';
 
@@ -21,8 +22,9 @@ class PostsComponent extends Component {
         <div className="post-index">
           {postIndex}
         </div>
-        <div className="post-show">
-          <Route path="/posts/:slug" component={Post} />
+        <div className="post">
+          <Route exact path="/posts/:slug" component={Post} />
+          <Route exact path="/posts/:slug/edit" component={EditPost} />
         </div>
       </div>
     );

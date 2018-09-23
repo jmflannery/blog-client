@@ -1,4 +1,4 @@
-.header {
+header {
   display: grid;
 
   .side-a {
@@ -64,7 +64,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .header {
+  header {
     grid-template-columns: 49vw 49vw;
 
     .side-a {

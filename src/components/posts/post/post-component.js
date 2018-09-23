@@ -22,9 +22,7 @@ class PostComponent extends Component {
               </span>
             </div>
           </div>
-          <div className="article-content">
-            <ReactMarkdown source={this.props.post.content} />
-          </div>
+          <ReactMarkdown source={this.props.post.content} className="article-content" />
         </article>
       :<div>Loading...</div>
     );
@@ -38,7 +36,7 @@ class PostComponent extends Component {
           <div className={publishedClass} onClick={this.togglePublished.bind(this)}>
             {this.publishButton()}
           </div>
-          <div className="post-control">
+          <div className="post-control" onClick={this.editPost.bind(this)}>
             <i className="far fa-edit"></i>
           </div>
           <div className="post-control">
@@ -64,6 +62,10 @@ class PostComponent extends Component {
     } else {
       this.props.publishPost(this.props.post.id);
     }
+  }
+
+  editPost() {
+    console.log(this.props.post);
   }
 }
 

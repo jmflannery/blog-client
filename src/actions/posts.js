@@ -56,6 +56,26 @@ const createPost = (title, slug, content) => {
   };
 };
 
+const updatePost = (postId, title, slug, content) => {
+  return (dispatch, getState) => {
+    let url = `${config.protocol}://${config.apiDomain}/posts/${postId}/edit`;
+    let token = getToken(getState());
+    return fetchJson(url, {
+      method: 'PUT',
+      body: JSON.stringify({
+        post: {
+          title: title,
+          slug: slug,
+          content: content
+        }
+      })
+    }, token)
+      .then(response => {
+        return dispatch(postUpdated(response.post))
+      });
+  };
+};
+
 const publishPost = postId => {
   return (dispatch, getState) => {
     let url = `${config.protocol}://${config.apiDomain}/posts/${postId}/publish`;
@@ -93,6 +113,7 @@ export {
   postsReceived,
   fetchPosts,
   createPost,
+  updatePost,
   selectPost,
   publishPost,
   unpublishPost

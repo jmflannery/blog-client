@@ -8,6 +8,11 @@
       display: none;
     }
   }
+
+  .post {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -29,8 +34,8 @@
       }
     }
 
-    .post-show {
-      width: 75%;
+    .post {
+      width: 75vw;
       margin: 0 32px;
     }
   }

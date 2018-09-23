@@ -13,7 +13,7 @@ class Header extends Component {
       );
     }
     return (
-      <div className='header'>
+      <header>
         <div className="side-a">
           <div className="icon">
             <i className="fas fa-code"></i>
@@ -27,7 +27,7 @@ class Header extends Component {
         <div className="side-b">
           {sessionControls}
         </div>
-      </div>
+      </header>
     );
   }
 

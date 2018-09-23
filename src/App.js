@@ -16,11 +16,11 @@ const App = (props) => (
     <Router>
       <Blog>
         <Header />
-        <div className="blog-content">
+        <main>
           <Route path="/sign-in" component={SignIn} />
           <Route path="/new-post" component={NewPost} />
           <Route path="/posts" component={Posts} />
-        </div>
+        </main>
       </Blog>
     </Router>
   </Provider>
