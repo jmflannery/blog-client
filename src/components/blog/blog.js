@@ -3,10 +3,12 @@ import { withRouter } from 'react-router-dom';
 import { fetchPosts } from '../../actions/posts';
 import BlogComponent from './blog-component';
 import { getToken } from '../../selectors/sessions';
+import { getPosts } from '../../selectors/posts';
 import { signinWithToken } from '../../actions/sessions';
 
 const mapStateToProps = (state, ownProps) => ({
-  token: getToken(state)
+  token: getToken(state),
+  posts: getPosts(state)
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -6,25 +6,23 @@ import './post.css';
 class PostComponent extends Component {
   render() {
     return (
-      this.props.post ?
-        <article>
-          <div className="article-header">
-            {this.postControls()}
-            <h1>{this.props.post.title}</h1>
-            <div>
-              <span className="by">by</span>
-              <span className="post-author">Jack Flannery</span>
-              <span className="feather">
-                <i className="fas fa-feather"></i>
-              </span>
-              <span className="post-date">
-                {this.props.post.published_at ? moment(this.props.post.published_at).format('dddd, MMMM Do YYYY') : ""}
-              </span>
-            </div>
+      <article>
+        <div className="article-header">
+          {this.postControls()}
+          <h1>{this.props.post.title}</h1>
+          <div>
+            <span className="by">by</span>
+            <span className="post-author">Jack Flannery</span>
+            <span className="feather">
+              <i className="fas fa-feather"></i>
+            </span>
+            <span className="post-date">
+              {this.props.post.published_at ? moment(this.props.post.published_at).format('dddd, MMMM Do YYYY') : ""}
+            </span>
           </div>
-          <ReactMarkdown source={this.props.post.content} className="article-content" />
-        </article>
-      :<div>Loading...</div>
+        </div>
+        <ReactMarkdown source={this.props.post.content} className="article-content" />
+      </article>
     );
   }
 

@@ -7,42 +7,32 @@ class EditPostComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: null,
-      slug: null,
-      content: null
+      title: props.post.title || '',
+      slug: props.post.slug || '',
+      content: props.post.content || ''
     };
   }
 
   render() {
-    if (!this.state.title && !this.state.slug && !this.state.content && this.props.post) {
-      let post = this.props.post;
-      this.setState({
-        title: post.title,
-        slug: post.slug,
-        content: post.content
-      });
-    }
     return (
-      this.props.post ?
-        <div className="edit-post-container">
-          <div className="edit-post-form">
-            <label htmlFor="title">Title</label>
-            <input type="text" id="title" value={this.state.title} onChange={(e) =>
-              this.setState({
-                title: e.target.value,
-                slug: e.target.value.replace(/\s+/g, '-').toLowerCase()
-              })
-            }/>
-            <label htmlFor="title">Slug</label>
-            <input type="text" id="title" value={this.state.slug} onChange={(e) =>
-              this.setState({ slug: e.target.value })
-            }/>
-            <label htmlFor="content">Article</label>
-            <textarea id="content" value={this.state.content} onChange={(e) => this.setState({ content: e.target.value })}/>
-            <button onClick={() => this.save()}>Save</button>
-          </div>
+      <div className="edit-post-container">
+        <div className="edit-post-form">
+          <label htmlFor="title">Title</label>
+          <input type="text" id="title" value={this.state.title} onChange={(e) =>
+            this.setState({
+              title: e.target.value,
+              slug: e.target.value.replace(/\s+/g, '-').toLowerCase()
+            })
+          }/>
+          <label htmlFor="title">Slug</label>
+          <input type="text" id="title" value={this.state.slug} onChange={(e) =>
+            this.setState({ slug: e.target.value })
+          }/>
+          <label htmlFor="content">Article</label>
+          <textarea id="content" value={this.state.content} onChange={(e) => this.setState({ content: e.target.value })}/>
+          <button onClick={() => this.save()}>Save</button>
         </div>
-      : <div>Loading...</div>
+      </div>
     );
   }
 

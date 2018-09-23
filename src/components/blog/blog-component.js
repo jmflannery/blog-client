@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Loading from '../loading.js';
 import './blog.css';
 
 class BlogComponent extends Component {
@@ -25,11 +26,15 @@ class BlogComponent extends Component {
   componentDidUpdate(prevProps) {
     if (!this.state.loaded || prevProps.token && !this.props.token) {
       this.props.fetchPosts()
-        .then(this.setState({ loaded: true }))
+        .then(this.setState({ loaded: true }));
     }
   }
 
   render() {
+    if (!this.props.posts.length) {
+      return <Loading />;
+    }
+
     return (
       <div className="blog">
         {this.props.children}
