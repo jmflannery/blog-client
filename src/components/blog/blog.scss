@@ -6,28 +6,36 @@
 }
 
 .blog {
+  display: grid;
+  grid-template-columns: 98vw;
+  grid-template-rows: 12vh auto auto;
+  grid-template-areas:
+    "header"
+    "main"
+    "nav";
+  grid-row-gap: 1vh;
+
   header {
-    width: 94vw;
-    height: 10vh;
-    padding: 3vh 3vw;
+    grid-area: header;
+    padding: 1vh;
+  }
+  nav {
+    grid-area: nav;
   }
   main {
-    width: 100vw;
-    height: 84vh;
+    grid-area: main;
+    padding: 1vh;
   }
 }
 
 @media only screen and (min-width: 768px) {
   .blog {
-    header {
-      width: 98vw;
-      height: 12vh;
-      padding: 1vh 1vw;
-    }
-    main {
-      width: 98vw;
-      height: 82vh;
-      padding: 1vh 1vw;
-    }
+    grid-template-columns: 25vw 73vw;
+    grid-template-rows: 12vh 85vh;
+    grid-template-areas:
+      "header header"
+      "nav main";
+    grid-column-gap: 1vh;
+    padding: 1vh;
   }
 }

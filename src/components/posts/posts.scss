@@ -1,42 +1,12 @@
-.posts {
-  .post-index {
-    width: 100vw;
-  }
-
-  &.show-post {
-    .post-index {
-      display: none;
-    }
-  }
-
-  .post {
-    display: flex;
-    flex-direction: row;
-  }
+nav {
+  display: flex;
+  flex-direction: column;
 }
 
 @media only screen and (min-width: 768px) {
-  .posts {
-    display: flex;
-    flex-direction: row;
-
-    .post-index {
-      width: 25vw;
-      height: 82vh;
-      overflow: scroll;
-      border: 1px solid black;
-      border-radius: 6px;
-    }
-
-    &.show-post {
-      .post-index {
-        display: block;
-      }
-    }
-
-    .post {
-      width: 75vw;
-      margin: 0 32px;
-    }
+  nav {
+    overflow: scroll;
+    border: 1px solid black;
+    border-radius: 6px;
   }
 }
