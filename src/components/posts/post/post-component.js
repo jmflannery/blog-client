@@ -17,7 +17,7 @@ class PostComponent extends Component {
               <i className="fas fa-feather"></i>
             </span>
             <span className="post-date">
-              {this.props.post.published_at ? moment(this.props.post.published_at).format('dddd, MMMM Do YYYY') : ""}
+              {this.props.post.published_at ? moment(this.props.post.published_at).format('YYYY MMMM Do') : ""}
             </span>
           </div>
         </div>

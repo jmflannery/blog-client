@@ -1,3 +1,5 @@
+@import '../../colors.scss';
+
 header {
   display: grid;
   grid-row-gap: 4px;
@@ -16,8 +18,8 @@ header {
       height: 56px;
       width: 56px;
       border-radius: 10px;
-      background-color: #0A0A4E;
-      color: #F62A00;
+      background-color: $dark-blue;
+      color: $light-red;
       font-size: 1.8rem;
     }
 
@@ -31,13 +33,13 @@ header {
       .domain {
         font-family: 'Source Code Pro', monospace;
         font-size: 1rem;
-        color: #2B2B30;
+        color: $grey;
       }
       .name {
         font-family: 'Trade Winds', cursive;
         font-size: 1.2rem;
         margin-left: 12px;
-        color: #0A0A4E;
+        color: $dark-blue;
       }
     }
   }
@@ -57,7 +59,7 @@ header {
         font-size: .9rem;
       }
       .sign-out {
-        color: #F62A00;
+        color: $light-red;
         cursor: pointer;
       }
     }

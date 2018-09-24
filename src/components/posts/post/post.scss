@@ -1,3 +1,5 @@
+@import '../../../colors.scss';
+
 article {
   width: 100%;
 
@@ -27,35 +29,75 @@ article {
 
     h1 {
       font-family: 'Oswald', sans-serif;
-      font-size: 2.6rem;
+      font-size: 2.5rem;
       margin-bottom: 8px;
     }
 
     .feather {
       margin: 0 6px;
-      color: green;
-      font-size: 1rem;
+      color: $dark-green;
+      font-size: 1.2rem;
     }
 
     .by {
       font-family: 'Pacifico', cursive;
-      font-size: 1rem;
-      color: grey;
+      font-size: 1.2rem;
+      color: $grey;
       margin: 0 4px;
     }
 
     .post-author, .post-date {
+      font-family: 'Source Code Pro', monospace;
       font-size: 0.8rem;
     }
   }
 
   .article-content {
-    font-size: 1.3rem;
     font-family: 'Song Myung', serif;
     margin-top: 32px;
+
+    h1 { font-size: 2.4rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.8rem; }
+    h4 { font-size: 1.6rem; }
+    h5 { font-size: 1.5rem; }
+    h6 { font-size: 1.4rem; }
+
+    p {
+      font-size: 1.2rem;
+      margin: 16px 0;
+      padding: 4px;
+      line-height: normal;
+
+      code {
+        background-color: $light-grey;
+        padding: 1px;
+        border: 1px solid $darker-grey;
+        border-radius: 2px;
+        white-space: nowrap;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: $light-blue;
+
+      &:hover {
+        color: $green;
+      }
+    }
+
     pre {
+      padding: 8px;
+      border: 1px solid $darker-grey;
+      border-radius: 4px;
+      overflow: scroll;
+      background-color: $light-grey;
+
       code {
         width: 100%;
+        font-family: 'Source Code Pro', monospace;
+        font-size: 1rem;
       }
     }
   }
@@ -81,19 +123,29 @@ article {
       }
 
       .by {
-        font-family: 'Pacifico', cursive;
         font-size: 1.4rem;
-        color: grey;
-        margin: 0 4px;
       }
 
       .post-author, .post-date {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
       }
     }
 
     .article-content {
       margin: 20px;
+      font-size: 1.3rem;
+
+      h1 { font-size: 2.6rem; }
+      h2 { font-size: 2.2rem; }
+      h3 { font-size: 2rem; }
+      h4 { font-size: 1.8rem; }
+      h5 { font-size: 1.6rem; }
+      h6 { font-size: 1.4rem; }
+
+      p {
+        font-size: 1.3rem;
+        line-height: 1.9rem;
+      }
     }
   }
 }
