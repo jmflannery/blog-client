@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import ReactMarkdown from 'react-markdown';
+import BottomNav from '../bottom-nav/bottom-nav';
 import './post.css';
 
 class PostComponent extends Component {
@@ -24,6 +25,8 @@ class PostComponent extends Component {
           </div>
           <ReactMarkdown source={this.props.post.content} className="article-content" />
         </article>
+
+        <BottomNav />
       </div>
     );
   }

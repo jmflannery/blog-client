@@ -4,8 +4,26 @@ const getPostBySlug = (state, slug) => state.posts.all.find(post => post.slug ==
 
 const getSelectedPost = (state) => state.posts.all.find(post => post.slug === state.posts.selected);
 
+const getPreviousPost = (state, slug) => {
+  let index = state.posts.all.findIndex(post => post.slug === slug);
+  if (index > 0) {
+    return state.posts.all[index - 1];
+  }
+  return null;
+};
+
+const getNextPost = (state, slug) => {
+  let index = state.posts.all.findIndex(post => post.slug === slug);
+  if (index < state.posts.all.length - 1) {
+    return state.posts.all[index + 1];
+  }
+  return null;
+};
+
 export {
   getPosts,
   getPostBySlug,
-  getSelectedPost
+  getSelectedPost,
+  getPreviousPost,
+  getNextPost,
 };
