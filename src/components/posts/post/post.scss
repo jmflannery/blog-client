@@ -70,34 +70,35 @@ article {
       line-height: normal;
 
       code {
-        background-color: $light-grey;
-        padding: 1px;
-        border: 1px solid $darker-grey;
+        background-color: #303030;
+        padding: 4px;
         border-radius: 2px;
         white-space: nowrap;
+        color: #66d9F0;
       }
     }
 
     a {
       text-decoration: none;
-      color: $light-blue;
+      color: dodgerblue;
 
-      &:hover {
-        color: $green;
+      &:hover, a:active {
+        color: forestgreen;
       }
     }
 
     pre {
       padding: 8px;
-      border: 1px solid $darker-grey;
       border-radius: 4px;
       overflow: scroll;
-      background-color: $light-grey;
+      background-color: #303030;
+      color: #66d9F0;
 
       code {
         width: 100%;
         font-family: 'Source Code Pro', monospace;
         font-size: 1rem;
+        line-height: 1.7rem;
       }
     }
   }

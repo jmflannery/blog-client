@@ -1,12 +1,41 @@
-nav {
-  display: flex;
-  flex-direction: column;
+.posts {
+  display: grid;
+  grid-template-columns: 100vw;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "post"
+    "nav";
+
+  nav {
+    grid-area: nav;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post {
+    grid-area: post;
+    padding: 6px;
+  }
+
+  .bottom-nav {
+    grid-area: bottomNav;
+    font-size: 3rem;
+  }
 }
 
 @media only screen and (min-width: 768px) {
-  nav {
-    overflow: scroll;
-    border: 1px solid black;
-    border-radius: 6px;
+  .posts {
+    display: grid;
+    grid-template-columns: 24vw 74vw;
+    grid-template-rows: 86vh;
+    grid-template-areas:
+      "nav post";
+    grid-column-gap: 1vh;
+
+    nav {
+      overflow: scroll;
+      border: 1px solid black;
+      border-radius: 6px;
+    }
   }
 }

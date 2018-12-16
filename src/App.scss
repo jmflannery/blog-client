@@ -7,34 +7,28 @@
 
 .blog {
   display: grid;
-  grid-template-columns: 98vw;
-  grid-template-rows: 12vh auto auto;
+  grid-template-columns: 100vw;
+  grid-template-rows: 12vh auto;
   grid-template-areas:
     "header"
-    "main"
-    "nav";
-  grid-row-gap: 1vh;
+    "main";
 
   header {
     grid-area: header;
     padding: 1vh;
   }
-  nav {
-    grid-area: nav;
-  }
   main {
     grid-area: main;
-    padding: 1vh;
   }
 }
 
 @media only screen and (min-width: 768px) {
   .blog {
-    grid-template-columns: 25vw 73vw;
-    grid-template-rows: 12vh 85vh;
+    grid-template-columns: 98vw;
+    grid-template-rows: 12vh auto;
     grid-template-areas:
-      "header header"
-      "nav main";
+      "header"
+      "main";
     grid-column-gap: 1vh;
     padding: 1vh;
   }

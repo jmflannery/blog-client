@@ -7,9 +7,8 @@ import Posts from './components/posts/posts';
 import SignIn from './components/sign-in/sign-in';
 import Header from './components/header/header';
 import NewPost from './components/posts/new/new-post';
-import EditPost from './components/posts/edit/edit-post';
-import Post from './components/posts/post/post';
 import './reset.css';
+import './App.css';
 
 const store = configureStore();
 
@@ -18,12 +17,11 @@ const App = (props) => (
     <Router>
       <Blog>
         <Header />
-        <Route path="/posts" component={Posts} />
         <main>
+          <Route exact path="/" component={Posts} />
+          <Route path="/posts" component={Posts} />
           <Route path="/sign-in" component={SignIn} />
-          <Route path="/new-post" component={NewPost} />
-          <Route exact path="/posts/:slug" component={Post} />
-          <Route path="/posts/:slug/edit" component={EditPost} />
+          <Route exact path="/new-post" component={NewPost} />
         </main>
       </Blog>
     </Router>

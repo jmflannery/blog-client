@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Loading from '../loading.js';
-import './blog.css';
 
 class BlogComponent extends Component {
   constructor(props) {
