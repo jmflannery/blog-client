@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import BottomNavComponent from './bottom-nav-component';
+import PostNavComponent from './post-nav-component';
 import { getPreviousPost, getNextPost} from '../../../selectors/posts';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -8,4 +8,4 @@ const mapStateToProps = (state, ownProps) => ({
   nextPost: getNextPost(state, ownProps.match.params.slug),
 });
 
-export default withRouter(connect(mapStateToProps)(BottomNavComponent));
+export default withRouter(connect(mapStateToProps)(PostNavComponent));

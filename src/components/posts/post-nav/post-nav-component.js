@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './bottom-nav.css';
+import './post-nav.css';
 
-class BottomNavComponent extends Component {
+class PostNavComponent extends Component {
   render() {
     let previousLink = null, nextLink = null;
     if (this.props.previousPost) {
@@ -39,4 +39,4 @@ class BottomNavComponent extends Component {
   }
 }
 
-export default BottomNavComponent;
+export default PostNavComponent;
