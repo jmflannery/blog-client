@@ -1,10 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, ReactDOM } from 'react';
 import moment from 'moment';
 import ReactMarkdown from 'react-markdown';
 import PostNav from '../post-nav/post-nav';
 import './post.css';
 
 class PostComponent extends Component {
+  componentDidUpdate() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     return (
       <div>
