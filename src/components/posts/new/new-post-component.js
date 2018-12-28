@@ -38,9 +38,7 @@ class NewPostComponent extends Component {
   save() {
     if (!this.state.title && !this.state.content && !this.state.slug) return;
     this.props.createPost(this.state.title, this.state.slug, this.state.content)
-      .then((post) => {
-        this.props.history.push(`/blog/posts/${this.state.slug}`)
-      });
+      .then((post) => this.props.history.push(`/posts/${this.state.slug}`));
   }
 }
 
