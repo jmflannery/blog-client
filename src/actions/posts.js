@@ -58,7 +58,7 @@ const createPost = (title, slug, content) => {
 
 const updatePost = (postId, title, slug, content) => {
   return (dispatch, getState) => {
-    let url = `${config.protocol}://${config.apiDomain}/posts/${postId}/edit`;
+    let url = `${config.protocol}://${config.apiDomain}/posts/${postId}`;
     let token = getToken(getState());
     return fetchJson(url, {
       method: 'PUT',

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { updatePost } from '../../../actions/posts'
 import './edit-post.css';
 
 class EditPostComponent extends Component {
@@ -39,9 +38,7 @@ class EditPostComponent extends Component {
   save() {
     if (!this.state.title && !this.state.content && !this.state.slug && !this.props.post) return;
     this.props.updatePost(this.props.post.id, this.state.title, this.state.slug, this.state.content)
-      .then((post) => {
-        this.props.history.push(`/blog/posts/${this.state.slug}`)
-      });
+      .then(post => this.props.history.push(`/posts/${this.state.slug}`));
   }
 }
 

@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updatePost: (title, slug, content) => dispatch(updatePost(title, slug, content)),
+  updatePost: (id, title, slug, content) => dispatch(updatePost(id, title, slug, content)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditPostComponent);

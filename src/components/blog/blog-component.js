@@ -17,7 +17,7 @@ class BlogComponent extends Component {
           .catch(() => window.localStorage.removeItem('API-TOKEN'));
       } else {
         this.props.fetchPosts()
-          .then(this.setState({ loaded: true }))
+          .then(() => this.setState({ loaded: true }))
       }
     }
   }
@@ -25,12 +25,12 @@ class BlogComponent extends Component {
   componentDidUpdate(prevProps) {
     if (!this.state.loaded || prevProps.token && !this.props.token) {
       this.props.fetchPosts()
-        .then(this.setState({ loaded: true }));
+        .then(() => this.setState({ loaded: true }));
     }
   }
 
   render() {
-    if (!this.props.posts.length) {
+    if (!this.state.loaded) {
       return <Loading />;
     }
 
