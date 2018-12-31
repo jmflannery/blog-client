@@ -21,7 +21,7 @@ class Header extends Component {
           <div className="blog-title">
             <span className="domain">blog.</span>
             <span className="name">Jack Flannery</span>
-            <span className="domain">.com</span>
+            <span className="domain">.me</span>
           </div>
         </div>
         <div className="side-b">
