@@ -70,9 +70,7 @@ const updatePost = (postId, title, slug, content) => {
         }
       })
     }, token)
-      .then(response => {
-        return dispatch(postUpdated(response.post))
-      });
+      .then(response => dispatch(postUpdated(response.post)));
   };
 };
 

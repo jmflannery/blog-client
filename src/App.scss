@@ -8,7 +8,7 @@
 .blog {
   display: grid;
   grid-template-columns: 100vw;
-  grid-template-rows: 12vh auto;
+  grid-template-rows: 14vh auto;
   grid-template-areas:
     "header"
     "main";
@@ -25,7 +25,7 @@
 @media only screen and (min-width: 768px) {
   .blog {
     grid-template-columns: 98vw;
-    grid-template-rows: 12vh auto;
+    grid-template-rows: 10vh auto;
     grid-template-areas:
       "header"
       "main";

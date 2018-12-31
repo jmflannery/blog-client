@@ -28,7 +28,6 @@ header {
       flex-direction: row;
       align-items: center;
       margin-left: 12px;
-      color: #000102;
 
       .domain {
         font-family: 'Source Code Pro', monospace;
@@ -54,7 +53,7 @@ header {
       margin-right: 32px;
 
       .user {
-        color: #00293C;
+        color: $dark-blue;
         margin: 4px;
         font-size: .9rem;
       }

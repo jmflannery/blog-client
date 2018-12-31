@@ -46,7 +46,7 @@ class PostComponent extends Component {
           <div className="post-control" onClick={this.editPost.bind(this)}>
             <i className="far fa-edit"></i>
           </div>
-          <div className="post-control">
+          <div className="post-control delete">
             <i className="fas fa-trash-alt"></i>
           </div>
         </div>

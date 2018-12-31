@@ -1,52 +1,47 @@
+@import '../../../colors.scss';
+
 a.post-list-item {
   cursor: pointer;
   text-decoration: none;
-  border-top: 1px solid grey;
-  height: 15vh;
+  border-top: 1px solid $dark-grey;
   overflow: hidden;
-  flex-shrink: 0;
   padding: 8px;
 
   .post-title {
+    color: $dark-blue;
     font-size: 1.2rem;
     font-weight: bold;
   }
 
   .post-date {
     font-size: 0.9rem;
-    color: grey;
-  }
-
-  .post-preview {
-    font-size: 1rem;
-  }
-
-  &:hover {
-    background: lightcyan;
+    color: $dark-grey;
   }
 
   &.active {
-    background-color: lightskyblue;
+    background-color: $light-purple;
+
+    .post-title {
+      color: white;
+    }
 
     .post-date {
-      color: black;
+      color: $light-grey;
     }
-    * {
-      // color: darkgrey;
-    }
-  }
-
-  &:visited {
-    color: black;
   }
 }
 
 @media only screen and (min-width: 768px) {
   a.post-list-item {
-    padding: 8px;
-    border-top: 1px solid grey;
-    &:first-of-type {
-      border-top: none;
+    padding: 16px 8px;
+    border: none;
+
+    &:hover {
+      background-color: $light-purple;
+      .post-date {
+        font-size: 0.9rem;
+        color: $light-grey;
+      }
     }
   }
 }

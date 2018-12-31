@@ -11,9 +11,10 @@ article {
 
     .post-controls {
       display: flex;
-      border: 1px solid grey;
+      border: 1px solid $dark-grey;
       border-radius: 8px;
       padding: 4px;
+      color: $dark-grey;
 
       .post-control {
         display: flex;
@@ -36,19 +37,19 @@ article {
     .feather {
       margin: 0 6px;
       color: $dark-green;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
     }
 
     .by {
       font-family: 'Pacifico', cursive;
-      font-size: 1.2rem;
-      color: $grey;
+      font-size: 1.3rem;
+      color: $light-red;
       margin: 0 4px;
     }
 
     .post-author, .post-date {
       font-family: 'Source Code Pro', monospace;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
     }
   }
 
@@ -70,20 +71,20 @@ article {
       line-height: normal;
 
       code {
-        background-color: #303030;
+        background-color: $dark-grey;
         padding: 4px;
         border-radius: 2px;
         white-space: nowrap;
-        color: #66d9F0;
+        color: $light-blue;
       }
     }
 
     a {
       text-decoration: none;
-      color: dodgerblue;
+      color: $light-purple;
 
       &:hover, a:active {
-        color: forestgreen;
+        color: $light-blue;
       }
     }
 
@@ -91,8 +92,8 @@ article {
       padding: 8px;
       border-radius: 4px;
       overflow: scroll;
-      background-color: #303030;
-      color: #66d9F0;
+      background-color: $dark-grey;
+      color: $light-blue;
 
       code {
         width: 100%;
@@ -111,6 +112,14 @@ article {
         .post-control {
           font-size: 1.4rem;
           padding: 8px;
+
+          &:hover {
+            color: $light-purple;
+
+            &.delete {
+              color: $light-red;
+            }
+          }
         }
       }
 
@@ -120,11 +129,11 @@ article {
 
       .feather {
         margin: 0 12px;
-        font-size: 1.4rem;
+        font-size: 1.8rem;
       }
 
       .by {
-        font-size: 1.4rem;
+        font-size: 1.8rem;
       }
 
       .post-author, .post-date {
