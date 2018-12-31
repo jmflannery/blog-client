@@ -2,7 +2,7 @@ const getPosts = state => state.posts.all;
 
 const getPostBySlug = (state, slug) => state.posts.all.find(post => post.slug === slug);
 
-const getSelectedPost = (state) => state.posts.all.find(post => post.slug === state.posts.selected);
+const getSelectedPost = (state) => state.posts.all.find(post => post.id === state.posts.selected);
 
 const getPreviousPost = (state, slug) => {
   let index = state.posts.all.findIndex(post => post.slug === slug);

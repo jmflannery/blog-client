@@ -23,6 +23,12 @@ class BlogComponent extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    if (this.props.selectedPost) {
+      document.title = this.props.selectedPost.title;
+    } else {
+      document.title = "Jack's Blog"
+    }
+
     if (!this.state.loaded || prevProps.token && !this.props.token) {
       this.props.fetchPosts()
         .then(() => this.setState({ loaded: true }));

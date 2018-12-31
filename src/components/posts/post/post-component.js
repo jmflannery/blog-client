@@ -5,8 +5,17 @@ import PostNav from '../post-nav/post-nav';
 import './post.css';
 
 class PostComponent extends Component {
+  componentDidMount() {
+    this.props.selectPost(this.props.post.id);
+  }
+
   componentDidUpdate() {
+    this.props.selectPost(this.props.post.id);
     window.scrollTo(0, 0);
+  }
+
+  componentWillUnmount() {
+    this.props.selectPost(null);
   }
 
   render() {
