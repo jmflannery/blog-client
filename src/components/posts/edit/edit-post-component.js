@@ -29,7 +29,10 @@ class EditPostComponent extends Component {
           }/>
           <label htmlFor="content">Article</label>
           <textarea id="content" value={this.state.content} onChange={(e) => this.setState({ content: e.target.value })}/>
-          <button onClick={() => this.save()}>Save</button>
+          <div className="controls">
+            <button onClick={() => this.save()}>Save</button>
+            <button onClick={() => this.cancel()}>Cancel</button>
+          </div>
         </div>
       </div>
     );
@@ -39,6 +42,10 @@ class EditPostComponent extends Component {
     if (!this.state.title && !this.state.content && !this.state.slug && !this.props.post) return;
     this.props.updatePost(this.props.post.id, this.state.title, this.state.slug, this.state.content)
       .then(post => this.props.history.push(`/posts/${this.state.slug}`));
+  }
+
+  cancel() {
+    this.props.history.push(`/posts/${this.state.slug}`);
   }
 }
 
